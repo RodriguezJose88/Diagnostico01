@@ -2,50 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica01</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>PWA APP</title>
 </head>
 <body>
-   <div class="container" >
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Avatar</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody id="contenedor">
-        </tbody>
-      </table>
-   </div>
- 
-   <div class="d-flex justify-content-center">
- 
-    <form class="crud-form">
-        <h2>Registro de la persona</h2>
-        <div class="mb-3">
-          <label for="first_name" class="form-label">Primer Nombre  </label>
-          <input  class="form-control" id="first_name" >
+    <main>
+        <div class="container my-5 ">
+            <div class="row mb-5 g-4">
+                <div class="col">
+                    <input id="one" type="text" placeholder="Nombre" class="form-control"/>
+                </div>
+                <div class="col">
+                    <input id="two" type="text" placeholder="Officio" class="form-control"/>
+                </div>
+                <div class="col-1">
+                    <button onclick="agregar()" class="btn btn-primary float-end rounded-circle"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div id="elementos" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="last_name" class="form-label">Segundo Nombre  </label>
-            <input  class="form-control" id="last_name" >
-          </div>
-        <div class="mb-3">
-          <label for="avatar" class="form-label">Img</label>
-          <input type="avatar" class="form-control" id="avatar">
+        <div>
+            <div class="modal fade" id="userview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col">
+                                    <img id="c-img" src="" class="card-img-top rounded-circle" alt="user">
+                                  </div>
+                                  <div class="col">
+                                        <hr>
+                                        <h5>Email</h5>
+                                        <b id="c-email">...</b>
+                                        <hr>
+                                        <h5>Name</h5>
+                                        <p id="c-name">...</p>
+                                        <hr>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="modal fade" id="userviewc" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="userviewctitle">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col">
+                                    <img id="cc-img" src="https://www.brang.mx/admin/img/user.png" class="card-img-top rounded-circle" alt="user">
+                                  </div>
+                                  <div class="col">
+                                        <hr>
+                                        <h5>Email</h5>
+                                        <b id="cc-email">...</b>
+                                        <hr>
+                                        <h5>Name</h5>
+                                        <p id="cc-name">...</p>
+                                        <hr>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email">
-          </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        <input type="hidden" name="id">
-      </form>
-    </div>
+    </main>
 
+   <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
     
 </body>
 <script src="index.js"></script>
